@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Planeta en 365 Colores</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+
+<body>
+
+
+<!-- ==================================================
+     HEADER
+================================================== -->
+
+<header>
+
+    <h1>🌎 Planeta en 365 Colores</h1>
+
+    <p>
+        Un color, una reflexión y una obra de arte cada día.
+    </p>
+
+</header>
+
+
+<!-- ==================================================
+     NAVEGACIÓN
+================================================== -->
+
+<nav>
+
+    <button class="active"
+            onclick="mostrarSeccion('inicio', this)">
+        Inicio
+    </button>
+
+    <button onclick="mostrarSeccion('reto', this)">
+        Reto del día
+    </button>
+
+    <button onclick="mostrarSeccion('calendario', this)">
+        365 días
+    </button>
+
+    <button onclick="mostrarSeccion('crear', this)">
+        🎨 Crear
+    </button>
+
+    <button onclick="mostrarSeccion('ods', this)">
+        Agenda 2030
+    </button>
+
+</nav>
+
+
+<main>
+
+
+<!-- ==================================================
+     INICIO
+================================================== -->
+
+<section id="inicio" class="section active">
+
+    <div class="hero">
+
+        <h2>🎨 365 días para pintar el planeta</h2>
+
+        <p>
+            Cada día encontrarás un nuevo tema relacionado
+            con la naturaleza y la sostenibilidad. Utiliza
+            el color del día como inspiración y crea tu propia
+            obra artística.
+        </p>
+
+        <br>
+
+        <button class="btn"
+                onclick="irAlReto()">
+            Ver reto de hoy
+        </button>
+
+    </div>
+
+
+    <div class="cards">
+
+        <div class="card">
+
+            <h3>🌱 Observa</h3>
+
+            <p>
+                Descubre los colores y elementos que forman
+                parte de nuestro planeta.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🎨 Crea</h3>
+
+            <p>
+                Utiliza diferentes pinceles, formas y colores
+                para expresar tus ideas.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🌎 Reflexiona</h3>
+
+            <p>
+                Relaciona tu obra con un problema ambiental
+                o un Objetivo de Desarrollo Sostenible.
+            </p>
+
+        </div>
+
+
+        <div class="card">
+
+            <h3>🏆 Completa</h3>
+
+            <p>
+                Completa los retos y observa cómo avanzas
+                hacia los 365 días.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     RETO DEL DÍA
+================================================== -->
+
+<section id="reto" class="section">
+
+    <div class="daily">
+
+        <span class="badge" id="numeroDia">
+            Día 1
+        </span>
+
+        <span class="badge" id="odsDia">
+            ODS 15
+        </span>
+
+        <h2 id="tituloDia" style="margin-top:20px">
+            El color del bosque
+        </h2>
+
+        <p id="descripcionDia">
+            Observa los diferentes tonos verdes presentes
+            en los árboles, hojas y plantas.
+        </p>
+
+        <div class="color-display"
+             id="colorDia">
+
+            Verde bosque
+
+        </div>
+
+        <h3>🎯 Reto artístico</h3>
+
+        <p id="retoDia">
+            Crea una composición utilizando diferentes tonos
+            de verde para representar un bosque.
+        </p>
+
+        <br>
+
+        <h3>💡 Reflexión</h3>
+
+        <p id="reflexionDia">
+            Los bosques son ecosistemas fundamentales
+            para la vida.
+        </p>
+
+        <br>
+
+        <button class="btn"
+                onclick="completarDia()">
+            ✓ Completar reto
+        </button>
+
+        <button class="btn"
+                onclick="siguienteDia()">
+            Siguiente →
+        </button>
+
+        <h3 style="margin-top:25px">
+            Tu progreso
+        </h3>
+
+        <div class="progress-container">
+
+            <div class="progress"
+                 id="barraProgreso">
+            </div>
+
+        </div>
+
+        <p id="textoProgreso">
+            0 de 365 días completados
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     CALENDARIO
+================================================== -->
+
+<section id="calendario" class="section">
+
+    <div class="hero">
+
+        <h2>📅 Calendario de 365 colores</h2>
+
+        <p>
+            Selecciona un día para descubrir su reto.
+        </p>
+
+    </div>
+
+    <div class="calendar"
+         id="calendarioGrid">
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     EDITOR
+================================================== -->
+
+<section id="crear" class="section">
+
+    <div class="hero">
+
+        <h2>🎨 Estudio de creación</h2>
+
+        <p>
+            Experimenta con diferentes técnicas de pintura
+            y crea tu interpretación del reto.
+        </p>
+
+    </div>
+
+
+    <div class="editor">
+
+
+        <!-- ================= TOOLBAR ================= -->
+
+        <div class="editor-toolbar">
+
+
+            <!-- PINCELES -->
+
+            <div class="toolbar-group">
+
+                <button class="tool active"
+                        title="Pincel"
+                        onclick="seleccionarHerramienta('pincel', this)">
+                    🖌️
+                </button>
+
+                <button class="tool"
+                        title="Lápiz"
+                        onclick="seleccionarHerramienta('lapiz', this)">
+                    ✏️
+                </button>
+
+                <button class="tool"
+                        title="Crayón"
+                        onclick="seleccionarHerramienta('crayon', this)">
+                    🖍️
+                </button>
+
+                <button class="tool"
+                        title="Marcador"
+                        onclick="seleccionarHerramienta('marcador', this)">
+                    🖊️
+                </button>
+
+                <button class="tool"
+                        title="Acuarela"
+                        onclick="seleccionarHerramienta('acuarela', this)">
+                    💧
+                </button>
+
+                <button class="tool"
+                        title="Aerógrafo"
+                        onclick="seleccionarHerramienta('aerografo', this)">
+                    🌫️
+                </button>
+
+            </div>
+
+
+            <!-- GOMA -->
+
+            <div class="toolbar-group">
+
+                <button class="tool"
+                        title="Goma"
+                        onclick="seleccionarHerramienta('goma', this)">
+                    🧹
+                </button>
+
+            </div>
+
+
+            <!-- FORMAS -->
+
+            <div class="toolbar-group">
+
+                <button class="tool"
+                        title="Línea"
+                        onclick="seleccionarHerramienta('linea', this)">
+                    ╱
+                </button>
+
+                <button class="tool"
+                        title="Rectángulo"
+                        onclick="seleccionarHerramienta('rectangulo', this)">
+                    ▭
+                </button>
+
+                <button class="tool"
+                        title="Círculo"
+                        onclick="seleccionarHerramienta('circulo', this)">
+                    ○
+                </button>
+
+                <button class="tool"
+                        title="Triángulo"
+                        onclick="seleccionarHerramienta('triangulo', this)">
+                    △
+                </button>
+
+                <button class="tool"
+                        title="Estrella"
+                        onclick="seleccionarHerramienta('estrella', this)">
+                    ★
+                </button>
+
+            </div>
+
+
+            <!-- COLOR -->
+
+            <div class="toolbar-group">
+
+                <div class="control">
+
+                    <span>Color</span>
+
+                    <input type="color"
+                           id="color"
+                           value="#39796B">
+
+                </div>
+
+            </div>
+
+
+            <!-- TAMAÑO -->
+
+            <div class="toolbar-group">
+
+                <div class="control">
+
+                    <span>Tamaño</span>
+
+                    <input type="range"
+                           id="grosor"
+                           min="1"
+                           max="80"
+                           value="10">
+
+                    <span id="valorGrosor">
+                        10
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- OPACIDAD -->
+
+            <div class="toolbar-group">
+
+                <div class="control">
+
+                    <span>Opacidad</span>
+
+                    <input type="range"
+                           id="opacidad"
+                           min="10"
+                           max="100"
+                           value="100">
+
+                    <span id="valorOpacidad">
+                        100%
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- RELLENO -->
+
+            <div class="toolbar-group">
+
+                <label class="control">
+
+                    <input type="checkbox"
+                           id="relleno">
+
+                    Rellenar
+
+                </label>
+
+            </div>
+
+
+            <!-- HISTORIAL -->
+
+            <div class="toolbar-group">
+
+                <button class="tool"
+                        title="Deshacer"
+                        onclick="deshacer()">
+                    ↶
+                </button>
+
+                <button class="tool"
+                        title="Rehacer"
+                        onclick="rehacer()">
+                    ↷
+                </button>
+
+            </div>
+
+
+            <!-- LIMPIAR -->
+
+            <div class="toolbar-group">
+
+                <button class="btn danger"
+                        onclick="limpiarCanvas()">
+
+                    🗑️ Limpiar
+
+                </button>
+
+            </div>
+
+
+            <!-- GUARDAR -->
+
+            <div class="toolbar-group">
+
+                <button class="btn"
+                        onclick="guardarObra()">
+
+                    💾 Guardar
+
+                </button>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================= CANVAS ================= -->
+
+        <div class="canvas-wrapper">
+
+            <canvas id="canvas"
+                    width="1000"
+                    height="600">
+            </canvas>
+
+        </div>
+
+
+        <div class="editor-info">
+
+            <strong>Herramienta:</strong>
+
+            <span id="herramientaActual">
+                Pincel
+            </span>
+
+            &nbsp; | &nbsp;
+
+            <strong>Color:</strong>
+
+            <span id="colorActual">
+                #39796B
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- ==================================================
+     ODS
+================================================== -->
+
+<section id="ods" class="section">
+
+    <div class="ods">
+
+        <h2>🌎 Arte + Agenda 2030</h2>
+
+        <p style="margin-top:10px; line-height:1.7">
+
+            Planeta en 365 Colores utiliza la creación artística
+            como herramienta para aprender sobre sostenibilidad.
+
+        </p>
+
+
+        <div class="ods-grid">
+
+
+            <div class="ods-card">
+
+                <h3>ODS 4</h3>
+
+                <p>
+                    Educación de calidad.
+                </p>
+
+            </div>
+
+
+            <div class="ods-card">
+
+                <h3>ODS 6</h3>
+
+                <p>
+                    Agua limpia y saneamiento.
+                </p>
+
+            </div>
+
+
+            <div class="ods-card">
+
+                <h3>ODS 7</h3>
+
+                <p>
+                    Energía asequible y no contaminante.
+                </p>
+
+            </div>
+
+
+            <div class="ods-card">
+
+                <h3>ODS 12</h3>
+
+                <p>
+                    Producción y consumo responsables.
+                </p>
+
+            </div>
+
+
+            <div class="ods-card">
+
+                <h3>ODS 13</h3>
+
+                <p>
+                    Acción por el clima.
+                </p>
+
+            </div>
+
+
+            <div class="ods-card">
+
+                <h3>ODS 14</h3>
+
+                <p>
+                    Vida submarina.
+                </p>
+
+            </div>
+
+
+            <div class="ods-card">
+
+                <h3>ODS 15</h3>
+
+                <p>
+                    Vida de ecosistemas terrestres.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+<footer>
+
+    <p>
+        🌎 Planeta en 365 Colores
+    </p>
+
+    <p>
+        Arte · Educación · Sostenibilidad · Agenda 2030
+    </p>
+
+</footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,422 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    background: #f2f4ed;
+    color: #26352b;
+}
+
+/* ================= HEADER ================= */
+
+header {
+    background: linear-gradient(135deg, #193b35, #39796b, #8da85d);
+    color: white;
+    text-align: center;
+    padding: 35px 20px;
+}
+
+header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+header p {
+    opacity: .9;
+}
+
+/* ================= NAV ================= */
+
+nav {
+    background: #17342f;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 8px;
+    position: sticky;
+    top: 0;
+    z-index: 20;
+}
+
+nav button {
+    background: transparent;
+    color: white;
+    border: none;
+    padding: 11px 18px;
+    border-radius: 20px;
+    cursor: pointer;
+}
+
+nav button:hover,
+nav button.active {
+    background: #709c62;
+}
+
+/* ================= GENERAL ================= */
+
+main {
+    max-width: 1200px;
+    margin: auto;
+    padding: 25px;
+}
+
+.section {
+    display: none;
+}
+
+.section.active {
+    display: block;
+    animation: aparecer .4s ease;
+}
+
+@keyframes aparecer {
+
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+/* ================= HERO ================= */
+
+.hero {
+    background: white;
+    border-radius: 22px;
+    padding: 35px;
+    text-align: center;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+    margin-bottom: 25px;
+}
+
+.hero h2 {
+    color: #39796b;
+    margin-bottom: 15px;
+    font-size: 2rem;
+}
+
+.hero p {
+    max-width: 750px;
+    margin: auto;
+    line-height: 1.7;
+}
+
+/* ================= BUTTON ================= */
+
+.btn {
+    border: none;
+    background: #39796b;
+    color: white;
+    padding: 11px 18px;
+    border-radius: 22px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.btn:hover {
+    background: #24564d;
+}
+
+.btn.secondary {
+    background: #69766f;
+}
+
+.btn.danger {
+    background: #a84f45;
+}
+
+/* ================= CARDS ================= */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 20px;
+}
+
+.card {
+    background: white;
+    padding: 22px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.06);
+}
+
+.card h3 {
+    color: #39796b;
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #59645d;
+    line-height: 1.6;
+}
+
+/* ================= RETO ================= */
+
+.daily {
+    background: white;
+    padding: 30px;
+    border-radius: 22px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.07);
+}
+
+.badge {
+    background: #e4edcf;
+    color: #39796b;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+}
+
+.color-display {
+    height: 220px;
+    border-radius: 20px;
+    margin: 25px 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 2rem;
+    font-weight: bold;
+    text-shadow: 0 2px 5px rgba(0,0,0,.5);
+}
+
+/* ================= PROGRESO ================= */
+
+.progress-container {
+    background: #d9dfd5;
+    height: 18px;
+    border-radius: 20px;
+    overflow: hidden;
+    margin: 15px 0;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background: #39796b;
+    transition: .4s;
+}
+
+/* ================= CALENDARIO ================= */
+
+.calendar {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 7px;
+}
+
+.day {
+    background: white;
+    min-height: 55px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border: 2px solid transparent;
+    font-weight: bold;
+}
+
+.day:hover {
+    border-color: #39796b;
+}
+
+.day.completed {
+    background: #39796b;
+    color: white;
+}
+
+.day.today {
+    border-color: #d48a3a;
+}
+
+/* ==================================================
+   EDITOR DE ARTE
+================================================== */
+
+.editor {
+    background: white;
+    border-radius: 22px;
+    padding: 20px;
+    box-shadow: 0 5px 20px rgba(0,0,0,.08);
+}
+
+/* Barra superior */
+
+.editor-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    padding: 12px;
+    background: #eef2eb;
+    border-radius: 14px;
+    margin-bottom: 15px;
+}
+
+.toolbar-group {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    padding: 5px;
+    border-right: 1px solid #ccd4cb;
+}
+
+.toolbar-group:last-child {
+    border-right: none;
+}
+
+/* Herramientas */
+
+.tool {
+    width: 42px;
+    height: 40px;
+    border: none;
+    border-radius: 9px;
+    background: white;
+    cursor: pointer;
+    font-size: 18px;
+    border: 1px solid #d2d8d1;
+}
+
+.tool:hover {
+    background: #dce8d7;
+}
+
+.tool.active {
+    background: #39796b;
+    color: white;
+}
+
+/* Controles */
+
+.control {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+}
+
+input[type="color"] {
+    width: 45px;
+    height: 38px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="range"] {
+    width: 110px;
+    cursor: pointer;
+}
+
+select {
+    padding: 9px;
+    border: 1px solid #ccd4cb;
+    border-radius: 8px;
+}
+
+/* Canvas */
+
+.canvas-wrapper {
+    width: 100%;
+    overflow: auto;
+    background:
+        repeating-conic-gradient(
+            #f0f0f0 0% 25%,
+            white 0% 50%
+        )
+        50% / 20px 20px;
+
+    border-radius: 15px;
+    padding: 15px;
+}
+
+canvas {
+    display: block;
+    width: 100%;
+    max-width: 1000px;
+    height: auto;
+    margin: auto;
+    background: white;
+    border: 2px solid #cbd3ca;
+    border-radius: 8px;
+    cursor: crosshair;
+    touch-action: none;
+}
+
+/* Información */
+
+.editor-info {
+    margin-top: 12px;
+    padding: 12px;
+    background: #f3f6f1;
+    border-radius: 10px;
+    color: #59645d;
+}
+
+/* ================= ODS ================= */
+
+.ods {
+    background: #193b35;
+    color: white;
+    padding: 30px;
+    border-radius: 22px;
+}
+
+.ods-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.ods-card {
+    background: rgba(255,255,255,.1);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+/* ================= FOOTER ================= */
+
+footer {
+    margin-top: 30px;
+    background: #17342f;
+    color: white;
+    text-align: center;
+    padding: 25px;
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:700px) {
+
+    header h1 {
+        font-size: 1.8rem;
+    }
+
+    main {
+        padding: 12px;
+    }
+
+    .calendar {
+        grid-template-columns: repeat(5, 1fr);
+    }
+
+    .editor-toolbar {
+        justify-content: center;
+    }
+
+    .toolbar-group {
+        border-right: none;
+    }
+
+}

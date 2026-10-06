@@ -1,0 +1,13 @@
+git init
+git config --global user.name "Vic-07-ed"
+git config --global user.email "victoresilvanilo0312@gmail.com"
+git config --global --list
+
+git status
+git add .
+git status
+git commit -m "Planeta en 365 1.0"
+git remote add origin https://github.com/Vic-07-ed/Planeta-en-365-colores.git
+git remote -v
+git branch -M main
+git push -u origin main
